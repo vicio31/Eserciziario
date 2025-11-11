@@ -135,9 +135,50 @@ def rimuovi_libro() :
 
 
 def cerca_libro() :
+    global libreria
     print("-------------")
     print("Cerca libro")
     print("-------------\n")
+
+    titolo_libro_da_cercare = input("Digita il libro che desideri cercare:\n")
+
+    libro_trovato = False
+    while True:
+        for libro in libreria:
+            if libro["titolo"].lower() == titolo_libro_da_cercare.lower():
+
+                print("\n-----------------")
+                print("Libro trovato!")
+                print("-----------------\n")
+
+                print(f"{libro}")
+
+                libro_trovato = True
+                break
+                
+        
+        if not libro_trovato:
+            print("\n-------------------------------------------------------------------")
+            print(f"Non ci sono risultati con questo titolo: {titolo_libro_da_cercare}")
+            print("---------------------------------------------------------------------\n")
+
+        scelta = input("\n\nDigita 'si' per continuare la ricerca di un libro,\n" \
+                        "Digita 'no' per tornare al menù iniziale:\n")
+        while True:
+            if scelta == "si":
+                pulisci()
+                cerca_libro()
+                return
+            elif scelta == "no":
+                pulisci()
+                menu()
+                return
+            else:
+                print("Scelta non valida. Reindirizzamento al menu principale!!")
+                pulisci()
+                menu()
+                return
+    
 
 
 # in questa funzione ho dichiarato la variabile libreria globale per poterla usare.

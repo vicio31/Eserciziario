@@ -1,0 +1,26 @@
+Domande di progettazione: 
+- Come gestisco due libri con lo stesso titolo? 
+Due libri con lo stesso nome, autore, anno non devono esistere. Quando l'utente inserisci un libro con lo stesso 
+nome, autore e anno, il programma deve dire che già esiste questo libro e quindi non può inserirlo nella libreria
+e gli dice di riprovare ad inserire un nuovo libro quindi lo rimanda a compilare il form per inserire un libro.
+
+Se invece aggiunge un libro con lo stesso nome e anno ma cambia autore il programma lo consente (nella realtà 
+ci possono essere diversi libri con stesso nome e anno ma autore diverso).
+
+Se invece aggiunge un libro con lo stesso nome ma autore e anno cambiano il programma lo consente (nella realtà
+ci possono essere diversi libri con lo stesso nome e con anno e autore differenti).
+
+- L'anno è obbligatorio? Deve essere un intero positivo?
+Si, l'anno è obbligatorio e deve essere un intero positivo. Ma lo è anche il titolo e l'autore.
+
+- La ricerca deve essere sensibile a maiuscole/minuscole? Deve cercare sottostringhe?
+La ricerca deve essere molto semplice per il momento. Basta inserire il titolo completo del libro che si vuole
+cercare e il programma fa una ricerca nella libreria e se esiste lo mostra altrimenti dice che non ha trovato
+il libro nella libreria.
+
+- La rimozione deve chiedere conferma prima di cancellare?
+Certo, prima di cancellare un libro il programma deve chiedere conferma se si vuole cancellare il libro.
+
+- Se il file libreria.json è corrotto, cosa faccio?
+Per adesso questo punto non lo inseriamo nel progetto perché questo programma che sto per creare deve essere 
+il più semplice possibile, in futuro correggerò e renderò il tutto un pò più completo.

@@ -92,8 +92,8 @@ def rimuovi_libro() :
 
     libro_trovato = False
     for libro in libreria:
-        if libro["titolo"].lower() == libro_da_rimuovere:
-            conferma_rimozione = input("Vuoi davvero rimuovere questo libro?:\n")
+        if libro["titolo"].lower() == libro_da_rimuovere.lower():
+            conferma_rimozione = input("\nVuoi davvero rimuovere questo libro?:\n")
             if conferma_rimozione == "si":
                 libreria.remove(libro)
 
@@ -102,18 +102,20 @@ def rimuovi_libro() :
                 print("--------------")
                 salva_libro()
                 libro_trovato = True
+            elif conferma_rimozione == "no": 
+                print("\nRimozione libro annullata")
 
-                scelta = input("\nRispondi con 'si' se vuoi continuare a riuovere un libro,\n" \
-                                "Rispondi con 'no' se vuoi tornare al menù inizale:\n")
-                while True:
-                    if scelta == "si":
-                        pulisci()
-                        rimuovi_libro()
-                    elif scelta == "no":
-                        pulisci()
-                        menu()
-                    else:
-                        print("Scelta non valida. Riprova!!")
+            scelta = input("\nRispondi con 'si' se vuoi continuare a riuovere un libro,\n" \
+                            "Rispondi con 'no' se vuoi tornare al menù inizale:\n")
+            while True:
+                if scelta == "si":
+                    pulisci()
+                    rimuovi_libro()
+                elif scelta == "no":
+                    pulisci()
+                    menu()
+                else:
+                    print("Scelta non valida. Riprova!!")
     
     if not libro_trovato:
         scelta_finale = input("\nIl libro non è presente nella tua libreria!\n" \
@@ -226,30 +228,32 @@ def menu() :
     scelta = int(input("Inserisci la tua scelta (1-4) per proseguire: "))
     print("-------------------------------------------------------------------------------------------------\n")
 
-    if scelta == 1:
-        pulisci()
-        aggiungi_libro()
-    elif scelta == 2:
-        pulisci()
-        rimuovi_libro()
-    elif scelta == 3:
-        pulisci()
-        cerca_libro()
-    elif scelta == 4:
-        pulisci()
-        mostra_libro()
-    elif scelta == 5:
-        print("Uscita dal programma")
-    else: 
-        print("Comando non riconosciuto! Riprova.\n")
-        riprova = input("- Inserisci 'si' se vuoi continuare\n" \
-                        "- Inserisci 'no' se vuoi uscire dal programma:\n" \
-                        "")
-        if riprova == "si":
+    while True:
+        if scelta == 1:
             pulisci()
-            menu()
-        elif riprova == "no":
-            print("Programma interrotto")
+            aggiungi_libro()
+        elif scelta == 2:
+            pulisci()
+            rimuovi_libro()
+        elif scelta == 3:
+            pulisci()
+            cerca_libro()
+        elif scelta == 4:
+            pulisci()
+            mostra_libro()
+        elif scelta == 5:
+            print("Uscita dal programma")
+            break
+        else: 
+            print("Comando non riconosciuto! Riprova.\n")
+            riprova = input("- Inserisci 'si' se vuoi continuare\n" \
+                            "- Inserisci 'no' se vuoi uscire dal programma:\n" \
+                            "")
+            if riprova == "si":
+                pulisci()
+                menu()
+            elif riprova == "no":
+                print("Programma interrotto")
 
 
 # richiamo la funzione menu per far partire il programma altrimenti non succede nulla perché il mio programma
